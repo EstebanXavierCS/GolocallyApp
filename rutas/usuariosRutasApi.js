@@ -2,7 +2,7 @@ var ruta=require("express").Router();
 var {subirArchivoU}=require("../middlewares/middlewares");
 const conexion = require("../bd/conexion");
 
-var {mostrarUsuarios, nuevoUsuario, modificarUsuario, buscarID, borrarUsuario}=require("../bd/usuarioBD");
+var {mostrarUsuarios, nuevoUsuario, modificarUsuario, buscarUsuarioID, borrarUsuario}=require("../bd/usuarioBD");
 
 ruta.get("/api/mostrarusuarios",async(req,res)=>{
    var usuarios=await mostrarUsuarios();
@@ -26,7 +26,7 @@ ruta.post("/api/nuevousuario",subirArchivoU(), async(req,res)=>{
 });
 
 ruta.get("/api/buscarUsuarioPorId/:id",async(req,res)=>{
-   var user=await buscarID(req.params.id);
+   var user=await buscarUsuarioID(req.params.id);
    if(user==""){
       res.status(400).json("usuario no encontrado");
    }else{

@@ -6,9 +6,11 @@ admin.initializeApp({
 });
 
 var db=admin.firestore();
-var conexion=db.collection("miejemploBD");
-var conexionp=db.collection("misproductosBD");
+var conexion=db.collection("golocallyUsuarios");
+var conexionNegocio=db.collection("golocallyNegocios");
 
 
 
-module.exports={conexion,conexionp}
+module.exports={
+    conexion,
+    conexionNegocio};

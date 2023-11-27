@@ -2,8 +2,9 @@ class Usuario{
     constructor(id,data){
         this.bandera=0;
         this.id=id;
-        this.nombre=data.nombre;   
+        this.nombre=data.nombre;  
         this.usuario=data.usuario;
+        this.correo=data.correo;
         this.password=data.password;
         this.salt=data.salt;
         this.foto=data.foto;
@@ -21,6 +22,11 @@ class Usuario{
     set usuario(usuario){
         usuario.length>0?this._usuario=usuario:this.bandera=1;
     }
+    
+    set correo(correo){
+        correo.length>0?this._correo=correo:this.bandera=1;
+    }
+
 
     set password(password){
         password.length>0?this._password=password:this.bandera=1;
@@ -49,6 +55,10 @@ class Usuario{
         return this._usuario;
     }
 
+    get correo(){
+        return this._correo;
+    }
+
     get password(){
         return this._password;
     }
@@ -64,11 +74,12 @@ class Usuario{
     get admin(){
         return this._admin;
     }
-    get obtenerUsuario(){
+    get obtenerDatos(){
         if(this._id==null){
             return {
                 nombre:this.nombre,
                 usuario:this.usuario,
+                correo:this.correo,
                 password:this.password,
                 salt:this.salt,
                 foto:this.foto,
@@ -79,6 +90,7 @@ class Usuario{
                 id:this.id,
                 nombre:this.nombre,
                 usuario:this.usuario,
+                correo:this.correo,
                 password:this.password,
                 salt:this.salt,
                 foto:this.foto,

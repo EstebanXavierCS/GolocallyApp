@@ -36,9 +36,10 @@ function admin(req,res,siguiente){
     }
 }
 
+
 module.exports={
     generarPassword,
     validarPassword,
-    autorizado,
+     autorizado,
     admin
 }

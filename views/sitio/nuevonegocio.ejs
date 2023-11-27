@@ -1,0 +1,67 @@
+<%- include("../templates/encabezado")%>
+<%- include("../templates/menu")%>
+
+<style>
+    body {
+    background-image: url('https://wow-designstudio.com/wp-content/uploads/2023/03/Web-para-negocios-pequen%CC%83os.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* Ajusta otros estilos según sea necesario */
+}
+</style>
+<div class="container mt-5">
+    <form action="/nuevosnegocios/<%=user.id%>" method="post" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h1 class="text-center">Nuevo Negocio</h1>
+            </div>
+            <div class="card-body">
+                <input type="hidden" name="idUsuario" value="<%= user.id%>">
+
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del Negocio</label>
+                    <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Ej. Tienda de Arte" autofocus required>
+                    <div class="invalid-feedback">Por favor, ingresa el nombre del negocio.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="ubi" class="form-label">Ubicación</label>
+                    <input class="form-control" type="text" name="ubi" id="ubi" placeholder="Ej. Calle Principal, Ciudad" required>
+                    <div class="invalid-feedback">Por favor, ingresa la ubicación del negocio.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="desc" class="form-label">Descripción</label>
+                    <textarea class="form-control" name="desc" id="desc" placeholder="Describe tu negocio" rows="3" required></textarea>
+                    <div class="invalid-feedback">Por favor, ingresa la descripción del negocio.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="tel" class="form-label">Teléfono de Contacto</label>
+                    <input class="form-control" type="text" name="tel" id="tel" placeholder="Ej. 555-123-4567" required>
+                    <div class="invalid-feedback">Por favor, ingresa el teléfono del negocio.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="prod" class="form-label">Producto Destacado</label>
+                    <input class="form-control" type="text" name="prod" id="prod" placeholder="Ej. Artículos de Arte" required>
+                    <div class="invalid-feedback">Por favor, ingresa el producto destacado del negocio.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="foto" class="form-label">Foto del Negocio</label>
+                    <input class="form-control" type="file" name="foto" id="foto" required>
+                    <div class="invalid-feedback">Por favor, selecciona una foto para el negocio.</div>
+                </div>
+            </div>
+            <div class="card-footer d-flex justify-content-end">
+                <button class="btn btn-primary me-2" type="submit">Guardar Negocio</button>
+                <button class="btn btn-secondary" type="reset">Limpiar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<%- include("../templates/pie")%>

@@ -12,18 +12,20 @@ function subirArchivoU(){
 }
 
 
-function subirArchivoP(){
+function subirArchivoN(){
     var storage=multer.diskStorage({
-        destination: './web/Productos/images',
+        destination: './web/Negocios/images',
         filename: (req,file,cb)=>{
-            var archivo=file.originalname;
+            var archivo=Date.now()+file.originalname;
             cb(null,archivo);
         }
     });
     return multer({storage}).single('foto');
 }
 
+
+
 module.exports={
     subirArchivoU,
-    subirArchivoP
+    subirArchivoN,
 }
