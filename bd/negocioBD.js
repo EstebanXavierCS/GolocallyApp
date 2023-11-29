@@ -72,10 +72,6 @@ async function modificarNegocio(datos){
     var error=1;
     if(negocio!=undefined){  
         
-        if (datos.foto !== undefined && datos.foto !== negocio.foto) {
-            var fotoRuta = './web/Negocios/images/' + negocio.foto;
-            await fs.unlink(fotoRuta);
-        }
        var negocio= new Negocio(datos.id,datos)
        if(negocio.bandera==0){
            try{

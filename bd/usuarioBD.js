@@ -87,10 +87,6 @@ async function modificarUsuario(datos){
             datos.password=hash;
             datos.salt=salt;
         }
-        if (datos.foto !== undefined && datos.foto !== user.foto) {
-            var fotoRuta = './web/Usuarios/images/' + user.foto;
-            await fs.unlink(fotoRuta);
-        }
         var user= new Usuario(datos.id,datos)
         if(user.bandera==0){
             try{
@@ -109,8 +105,6 @@ async function borrarUsuario(id) {
     var error = 1;
     var user = await buscarUsuarioID(id);
     if (user != undefined) {
-        var fotoRuta = './web/Usuarios/images/' + user.foto;
-        await fs.unlink(fotoRuta); 
         try {
             var negocios = await conexionNegocio.where('userid', '==', id).get();
             negocios.forEach(async (negocio) => {
